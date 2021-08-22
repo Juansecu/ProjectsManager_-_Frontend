@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -9,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  errorMessage = '';
   form = this._FORM_BUILDER.group({
     email: [
       '',
@@ -40,8 +42,20 @@ export class RegisterComponent {
 
   constructor(
     private readonly _FORM_BUILDER: FormBuilder,
+    private readonly _ROUTER: Router,
     private readonly _AUTH_SERVICE: AuthService
   ) {}
 
-  register() {}
+  register() {
+    this._AUTH_SERVICE.register(this.form.value).subscribe(response => {
+      if ((response as any).code !== 201) {
+        this.form.reset();
+        this.errorMessage =
+          'Ha habido un error al inetntar añadir su usuario. ¡Inténtelo más tarde!';
+        return;
+      }
+
+      this._ROUTER.navigate(['/auth/login']);
+    });
+  }
 }

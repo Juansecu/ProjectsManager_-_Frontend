@@ -1,1 +1,7 @@
-<p>projects-list works!</p>
+<div *ngFor="let company of projects" class="card container" style="width: 68rem;">
+  <div class="card-body">
+    <h3 class="card-title">{{ company.name }}</h3>
+    <p class="card-text">{{ company.description }}</p>
+    <small class="text-muted">{{ company.addedAt }}</small>
+  </div>
+</div>

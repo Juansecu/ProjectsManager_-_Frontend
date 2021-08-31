@@ -28,7 +28,7 @@ export class LoginComponent {
     private readonly _AUTH_SERVICE: AuthService
   ) {}
 
-  login() {
+  login(): void {
     this._AUTH_SERVICE.login(this.form.value).subscribe(response => {
       if ((response as any).code !== 200) {
         switch ((response as any).code) {
@@ -46,7 +46,7 @@ export class LoginComponent {
         return;
       }
 
-      sessionStorage.setItem('token', (response as any).token);
+      localStorage.setItem('token', (response as any).token);
 
       this._ROUTER.navigate(['/companies']);
     });

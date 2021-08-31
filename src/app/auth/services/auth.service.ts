@@ -23,4 +23,8 @@ export class AuthService {
       newUserData
     );
   }
+
+  verifyToken(): boolean {
+    return !!localStorage.getItem('token');
+  }
 }

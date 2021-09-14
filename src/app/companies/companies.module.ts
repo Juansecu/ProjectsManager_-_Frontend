@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { CompaniesRoutingModule } from './companies-routing.module';
 
-import { CompaniesListComponent } from './components/companies-list/companies-list.component';
+import { CompanyListComponent } from './components/company-list/company-list.component';
 
 @NgModule({
-  declarations: [CompaniesListComponent],
+  declarations: [CompanyListComponent],
   imports: [CommonModule, CompaniesRoutingModule]
 })
 export class CompaniesModule {}

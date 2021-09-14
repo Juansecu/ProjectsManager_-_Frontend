@@ -1,7 +1,14 @@
-<div *ngFor="let company of companies" class="card container" style="width: 68rem;">
-  <div class="card-body">
-    <h3 class="card-title">{{ company.name }}</h3>
-    <p class="card-text">{{ company.address }}</p>
-    <small class="text-muted">{{ company.nit }}</small>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div *ngFor="let company of companies" class="col">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{ company.name }}</h3>
+        <p class="card-text">{{ company.address }}</p>
+        <button type="button" class="btn btn-outline-primary">Join company</button>
+      </div>
+      <div class="card-footer">
+        <span class="text-muted">NIT: {{ company.nit }}</span>
+      </div>
+    </div>
   </div>
 </div>

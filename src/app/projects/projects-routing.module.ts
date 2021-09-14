@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ProjectsListComponent } from './components/projects-list/projects-list.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProjectsListComponent
+        component: ProjectListComponent
       },
       {
         path: '**',

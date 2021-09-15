@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './auth/guards/auth.guard';
+
 const routes: Routes = [
   {
     path: 'auth',
@@ -19,7 +21,9 @@ const routes: Routes = [
   {
     path: 'tickets',
     loadChildren: () =>
-      import('./tickets/tickets.module').then(m => m.TicketsModule)
+      import('./tickets/tickets.module').then(m => m.TicketsModule),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {
     path: '**',

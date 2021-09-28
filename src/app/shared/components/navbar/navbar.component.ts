@@ -18,18 +18,20 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this._AUTH_SERVICE.verifyToken()) {
-      this.routes.push({
-        label: 'Login',
-        path: '/auth/login'
-      });
-      this.routes.push({
-        label: 'Register',
-        path: '/auth/register'
-      });
+      this.routes.push(
+        {
+          label: 'Login',
+          path: '/auth/login'
+        },
+        {
+          label: 'Register',
+          path: '/auth/register'
+        }
+      );
     } else {
       this.routes.push({
         label: 'Tickets',
-        path: '/tickets'
+        path: '/tickets/my-tickets'
       });
     }
   }

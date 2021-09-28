@@ -48,7 +48,9 @@ export class LoginComponent {
 
       localStorage.setItem('token', (response as any).token);
 
-      this._ROUTER.navigate(['/companies']);
+      this._ROUTER
+        .navigate(['/companies'])
+        .then(() => window.location.reload());
     });
   }
 }
